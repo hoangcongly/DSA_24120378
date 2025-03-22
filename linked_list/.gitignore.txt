@@ -1,0 +1,13 @@
+# Bỏ qua các tệp tạm thời của Visual Studio
+.suo
+.user
+.ilk
+.obj
+.tlog
+.db
+
+# Bỏ qua thư mục .vs
+.vs
+
+# Bỏ qua thư mục build (nếu có)
+build
