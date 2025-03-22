@@ -1,0 +1,69 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\code_DSA\\06032025_TH\\B1_07\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0E1C5050-AC9E-40AA-B54F-B4082A131A99}|120325\\120325.vcxproj|D:\\code_DSA\\06032025_TH\\B1_07\\120325\\120325.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0E1C5050-AC9E-40AA-B54F-B4082A131A99}|120325\\120325.vcxproj|solutionrelative:120325\\120325.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2374FCF-CE70-481D-BD67-EB9442AF43FB}|Set\\Set.vcxproj|D:\\code_DSA\\06032025_TH\\B1_07\\Set\\Set.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D2374FCF-CE70-481D-BD67-EB9442AF43FB}|Set\\Set.vcxproj|solutionrelative:Set\\Set.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A063832-F382-4108-B79B-04CEFE1ED6F9}|B1_07\\B1_07.vcxproj|D:\\code_DSA\\06032025_TH\\B1_07\\B1_07\\B1_07.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0A063832-F382-4108-B79B-04CEFE1ED6F9}|B1_07\\B1_07.vcxproj|solutionrelative:B1_07\\B1_07.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "120325.cpp",
+              "DocumentMoniker": "D:\\code_DSA\\06032025_TH\\B1_07\\120325\\120325.cpp",
+              "RelativeDocumentMoniker": "120325\\120325.cpp",
+              "ToolTip": "D:\\code_DSA\\06032025_TH\\B1_07\\120325\\120325.cpp",
+              "RelativeToolTip": "120325\\120325.cpp",
+              "ViewState": "AgIAAMYAAAAAAAAAAAAgwOUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-13T14:14:44.63Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Set.cpp",
+              "DocumentMoniker": "D:\\code_DSA\\06032025_TH\\B1_07\\Set\\Set.cpp",
+              "RelativeDocumentMoniker": "Set\\Set.cpp",
+              "ToolTip": "D:\\code_DSA\\06032025_TH\\B1_07\\Set\\Set.cpp",
+              "RelativeToolTip": "Set\\Set.cpp",
+              "ViewState": "AgIAABkAAAAAAAAAAAAkwCoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-09T13:11:11.241Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "B1_07.cpp",
+              "DocumentMoniker": "D:\\code_DSA\\06032025_TH\\B1_07\\B1_07\\B1_07.cpp",
+              "RelativeDocumentMoniker": "B1_07\\B1_07.cpp",
+              "ToolTip": "D:\\code_DSA\\06032025_TH\\B1_07\\B1_07\\B1_07.cpp",
+              "RelativeToolTip": "B1_07\\B1_07.cpp",
+              "ViewState": "AgIAACYAAAAAAAAAAAAkwC8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-07T08:16:05.492Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -19,6 +19,7 @@ private:
         }
         return { maxElement, maxCount };
     }
+
     bool hasPairWithSum(int K)
     {
         unordered_set<int> a;
