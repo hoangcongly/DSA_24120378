@@ -230,4 +230,224 @@ void remove_Duplicate(Node*head)
         }
     }
 }
-void 
+Node*rotateLeft(Node*head, int k)
+{
+    if(head==NULL|| head->pNext==NULL|| k==0) return head;
+    Node*temp=head;
+    int len=1;
+    while(temp->pNext!=NULL)
+    {
+        temp=temp->pNext;
+        len++;
+    }
+    k=k%len;
+    if(k==0) return head;
+    temp->pNext=head;
+    Node*newTail=head;
+    for(int i=0; i<k-1; i++) 
+    {
+        newTail=newTail->pNext;
+    }
+    head=newTail->pNext;
+    newTail->pNext=NULL;
+    return head;
+}
+bool isPalindrome(Node*head)
+{
+    if(head!=NULL|| head->pNext!=NULL) return true;
+    Node*slow=head;
+    Node*fast=head;
+    while(fast!=NULL&& fast->pNext!=NULL) 
+    {
+        slow=slow->pNext;
+        fast=fast->pNext->pNext;
+    }
+    Node*prev=NULL;
+    while(slow!=NULL)
+    {
+        Node*next= slow->pNext;
+        slow->pNext=prev;
+        prev=slow;
+        slow=next;
+    }
+    Node*secondHalf=prev;
+    Node*firstHalf= head;
+    while(secondHalf)
+    {
+        if(firstHalf->data!=secondHalf->data) return false;
+        firstHalf=firstHalf->pNext;
+        secondHalf=secondHalf->pNext;
+    }
+    return true;
+}
+Node*mergeList(Node*head1, Node*head2)
+{
+    if(head1==NULL) return head2;
+    if(head2==NULL) return head1;
+    Node*temp=head1;
+    while(temp->pNext!=NULL) 
+    {
+        temp=temp->pNext;
+    }
+    temp->pNext= head2;
+    return head1;
+}
+Node*mergeInterleaved(Node*head1, Node*head2)
+{
+    if(head1==NULL) return head2;
+    if(head2==NULL) return head1;
+    Node*p1=head1;
+    Node*p2=head2;
+    Node*next1,*next2;
+    while(p1!=NULL&&p2!=NULL)
+    {
+        next1=p1->pNext;
+        next2=p2->pNext;
+        p1->pNext=p2;
+        p1=next1;
+        if(p1!=NULL)
+        {
+            p2->pNext=p1;
+        }
+        p2=next2;
+    }
+    return head1;
+}
+Node* mergeOddEven(Node*head1, Node*head2)
+{
+    Node*oddHead=NULL,*oddTail=NULL;
+    Node*evenHead=NULL, *evenTail=NULL;
+    Node*current= head1;
+    while(current!=NULL)
+    {
+        Node*nextNode=current->pNext;
+        if(current->data%2!=0)
+        {
+            if(oddHead==NULL) 
+            {
+                oddHead=oddTail=current;
+            }
+            else
+            {
+                oddTail->pNext=current;
+                oddTail=current;
+            }
+        }
+        else 
+        {
+            if(evenHead==NULL)
+            {
+                evenHead=evenTail=current;
+            }
+            else
+            {
+                evenTail->pNext=current;
+                evenTail=current;
+            }
+        }
+        current=nextNode;
+    }
+    current=head2;
+    while(current!=NULL)
+    {
+        Node*nextNode=current->pNext;
+        if(current->data%2!=0)
+        {
+            if(oddHead==NULL)
+            {
+                oddHead=oddTail=current;
+            }
+            else
+            {
+                oddTail->pNext=current;
+                oddTail=current;
+            }
+        }
+        else
+        {
+            if(evenHead==NULL)
+            {
+                evenHead=evenTail=current;
+            }
+            else
+            {
+                evenTail->pNext=current;
+                evenTail=current;
+            }
+        }
+        current=nextNode;
+    }
+    if(oddTail!=NULL) oddTail->pNext=evenHead;
+    if(evenTail!=NULL) evenTail->pNext=NULL;
+    return oddHead? oddHead:evenHead;
+}
+Node*mergeSortedList(Node*head1,Node*head2)
+{
+    if(head1==NULL) return head2;
+    if(head2==NULL) return head1;
+    Node*head=NULL;
+    Node*tail=NULL;
+    if(head1->data<head2->data) 
+    {
+        head=tail=head1;
+        head1=head1->pNext;    
+    }
+    else
+    {
+        head=tail=head2;
+        head2=head2->pNext;
+    }
+    while(head1!=NULL&&head2!=NULL)
+    {
+        if(head1->data<head2->data)
+        {
+            tail->pNext=head1;
+            head1=head1->pNext;
+        }
+        else
+        {
+            tail->pNext=head2;
+            head2=head2->pNext;
+        }
+        tail=tail->pNext;
+    }
+    if(head1!=NULL) tail->pNext=head1;
+    else tail->pNext=head2; 
+    return head;
+}
+// hàm chia danh sách thành 2 danh sách con, 1 danh sách lẻ và 1 danh sách chẵn
+void splitList(Node*head,Node*&oddHead,Node*&evenHead)
+{
+    Node*oddTail=NULL;
+    Node*evenTail=NULL;
+    while(head!=NULL)
+    {
+        if(head->data%2!=0)
+        {
+            if(oddHead==NULL)
+            {
+                oddHead=oddTail=head;
+            }
+            else
+            {
+                oddTail->pNext=head;
+                oddTail=oddTail->pNext;
+            }
+        }
+        else
+        {
+            if(evenHead==NULL)
+            {
+                evenHead=evenTail=head;
+            }
+            else
+            {
+                evenTail->pNext=head;
+                evenTail=evenTail->pNext;
+            }
+        }
+        head=head->pNext;
+    }
+    if(oddTail!=NULL) oddTail->pNext=NULL;
+    if(evenTail!=NULL) evenTail->pNext=NULL;
+}
