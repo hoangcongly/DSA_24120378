@@ -1,3 +1,37 @@
+/*
+Bài 1. Viết chương trình để thực hiện các thao tác với danh sách liên kết đơn bao gồm:
+a. Tạo một danh sách liên kết đơn từ các giá trị nguyên.
+b. In ra các phần tử trong danh sách.
+c. Đếm số lượng phần tử trong danh sách liên kết.
+d. Thêm node vào vị trí bất kỳ trong danh sách liên kết đơn.
+e. Tìm kiếm một giá trị trong danh sách.
+f. Xóa node tại vị trí bất kỳ trong danh sách liên kết đơn.
+g. Xóa node chứa giá trị (được nhập từ bàn phím) trong danh sách liên kết đơn.
+h. Cập nhật giá trị của node tại vị trí bất kỳ trong danh sách liên kết đơn.
+i. Đảo ngược danh sách liên kết
+j. Sắp xếp danh sách liên kết đơn
+k. Loại bỏ các phần tử trùng trong danh sách liên kết đơn.
+l. Xoay danh sách liên kết sang trái hoặc phải k lần.
+m. Kiểm tra danh sách liên kết có phải là danh sách đối xứng không.
+* Lưu ý:
+ Các thao tác cần được xây dựng dưới dạng hàm.
+ Sau khi chạy chương trình, người dùng sẽ thấy một menu với các lựa chọn tương ứng với từng thao
+tác. Người dùng có thể chọn thao tác bằng cách nhập số tương ứng và chương trình sẽ thực hiện
+thao tác đó.
+
+Bài 2. Chia một danh sách liên kết thành hai danh sách mới, một danh sách chứa các node có giá trị lẻ, một
+danh sách chứa các node có giá trị chẵn.
+
+Bài 3. Cho hai danh sách liên kết đơn, mỗi danh sách chứa các phần tử là các số nguyên. Hãy thực hiện các
+yêu cầu sau:
+a. Nối hai danh sách liên kết đơn
+b. Nối hai danh sách đơn sao cho các phần tử trong danh sách liên kết 1 xen kẽ với các phần tử trong
+danh sách liên kết 2
+c. Nối hai danh sách đơn sao cho danh sách liên kết cuối cùng có các phần tử lẻ nằm đầu danh sách
+và phần tử chẵn nằm cuối danh sách.
+d. Nối hai danh sách đơn sao cho các phần tử trong danh sách liên kết cuối cùng được sắp xếp theo
+thứ tự tăng dần
+*/
 #include <iostream>
 using namespace std;
 
@@ -451,3 +485,4 @@ void splitList(Node*head,Node*&oddHead,Node*&evenHead)
     if(oddTail!=NULL) oddTail->pNext=NULL;
     if(evenTail!=NULL) evenTail->pNext=NULL;
 }
+
