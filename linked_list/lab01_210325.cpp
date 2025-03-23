@@ -183,3 +183,51 @@ Node* reverseLinkedList(Node*head)
 //         cur=cur->pNext;
 //     }dir
 // }
+Node*merge(Node*left, Node*right)
+{
+    if(!left) return right;
+    if(!right) return left;
+    if(left->data<right->data)
+    {
+        left->pNext=merge(left->pNext, right);
+        return left;
+    }
+    else 
+    {
+        right->pNext=merge(left,right->pNext);
+        return right;
+    }
+}
+Node* mergeSort(Node*head)
+{
+    if(head==NULL|| head->pNext==NULL) return head;
+    Node*slow=head;
+    Node*fast= head->pNext;
+    while(fast&&fast->pNext)
+    {
+        slow=slow->pNext;
+        fast=fast->pNext->pNext;
+    }
+    Node*mid=slow->pNext;
+    slow->pNext=NULL;
+    return merge(mergeSort(head),mergeSort(mid));
+}
+void remove_Duplicate(Node*head)
+{
+    if(head==NULL) return;
+    Node*cur=head;
+    while(cur->pNext!=NULL)
+    {
+        if(cur->data== cur->pNext->data)
+        {
+            Node*temp= cur->pNext;
+            cur->pNext=temp->pNext;
+            delete temp;
+        }
+        else
+        {
+            cur=cur->pNext;
+        }
+    }
+}
+void 
