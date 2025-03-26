@@ -214,3 +214,97 @@ void hybridSortRecursive(int* a, int left, int right, int thresold)
 	hybridSortRecursive(a, mid,right, thresold);
 	merge(a, left, mid, right);
 }
+void heapify(int*a, int n, int i)
+{
+	int largest=i;
+	int left= 2*i+1;
+	int right=2*i+2;
+	if(left<n&& a[left]> a[largest]) largest=left;
+	if(right<n&& a[right]> a[largest]) largest=right;
+	if(largest!=i)
+	{
+		swap(a[i], a[largest]);
+		heapify(a,n,largest);
+	}
+}
+void printArrays(int*a, int n)
+{
+	for(int i=0; i< n; i++) 
+	{
+		cout << a[i] << "\t";
+	}
+}
+void heapSort(int*a, int n)
+{
+	for(int i=n/2-1; i>=0; i--)
+	{
+		heapify(a,n,i);
+	}
+	cout << "Sau khi tạo Heap: ";
+	printArrays(a,n);
+	for(int i=n-1; i>0; i--)
+	{
+		swap(a[0],a[i]);
+		heapify(a, i,0);
+		cout << "Buoc: " << n-i << ": ";
+		printArrays(a,n);
+	}
+}
+// 1 1 1 2 2 3 4 4 4 4 5 5 
+void abc(int*a, int n)
+{
+	
+	int count=1;
+	for(int i=1; i<n; i++)
+	{
+		if(a[i]==a[i-1]) 
+		{
+			count++;
+		}
+		else
+		{
+			cout << a[i-1]<< ": "<< count<< endl;
+			count=1;
+		}
+		cout << a[n-1] << ": " << count << endl;
+		
+	}
+}
+void shop(int*a, int n)
+{
+	// 1 1 1 2 2 3 4 4 4 4 5 5 
+	int freq[100]={0};
+
+	int d=0;
+	for(int i=0; i<n; i++)
+	{
+		freq[a[i]]++;
+	}
+	for(int i=0; i<100; i++)
+	{
+		if(freq[a[i]]>0) d++;
+	}
+	int ind=0;
+	int*nums=new int[d];
+
+	int*count=new int[d];
+
+	for(int i=0; i<100; i++ )
+	{
+		if(freq[i]>0) 
+		{
+			nums[ind++]=i;
+			count[ind++]= freq[i];
+		}
+	}
+	for(int i=0; i< d-1; i++)
+	{
+		for(int j=i+1; j<d; j++)
+		{
+			swap(count[i], count[j]);
+            swap(nums[i], nums[j]);
+		}
+	}
+	for (int i = 0; i < d; i++)
+    cout << nums[i] << ": " << count[i] << endl;
+}
