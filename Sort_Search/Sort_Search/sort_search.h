@@ -2,6 +2,8 @@
 #define SORT_SEARCH.H
 
 #include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 void swap(int& a, int& b);

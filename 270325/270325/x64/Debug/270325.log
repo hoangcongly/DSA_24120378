@@ -1,0 +1,3 @@
+﻿  270325.cpp
+D:\code_DSA\270325\270325\270325.cpp(12,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  270325.vcxproj -> D:\code_DSA\270325\x64\Debug\270325.exe

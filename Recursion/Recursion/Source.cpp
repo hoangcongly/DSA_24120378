@@ -52,66 +52,61 @@ void FloodFill(int x, int y, int oldColor, int newColor) {
 	FloodFill(x, y + 1, oldColor, newColor); // Phải
 	FloodFill(x, y - 1, oldColor, newColor); // Trái
 }
-///////////POINTER///////////////////////
-struct pPhanSo
+int FibonacciAvc(int n)
 {
-	int tu, mau;
-};
+	if(n==0) return 1;
+	if(n==1) return 2;
+	return 2*FibonacciAvc(n-1)+3*FibonacciAvc(n-2);
+}
+int sodaonguoc(int n, int reversed)
+{//// 42156 4215 rvs= 6, 421 rvs= 65, 42 rvs= 651, 4 rvs=6542, 
+if(n==0) return reversed;
+return sodaonguoc(n/10, reversed*10+n%10);
+}
+int sum_even(int n, int sum)
+{
+	if(n==0) return sum;
+	if(n%2==0) return sum+n%10;
+	return sum_even(n/10, sum);
+}
+int dem_so_cach_len_cauthang(int n=4)
+{
+	// 4. 1-1-1-1 .1-1-2 .1-2-1 .2-1-1 .1-3. 3-1 .2-2
+	if(n==0) return 1;
+	if(n<0) return 0;
+	return dem_so_cach_len_cauthang(n-1)+dem_so_cach_len_cauthang(n-2)+dem_so_cach_len_cauthang(n-3);
+}
 int GCD(int a, int b)
 {
-	if (b == 0) return a;
-	return GCD(b, a % b);
+	if(b==0) return a;
+	return GCD(b,a%b);
 }
-pPhanSo simplify(pPhanSo& ps)
+bool isPrime(int n, int i=2)
 {
-	int gcd = GCD(max(ps.tu, ps.mau), min(ps.tu, ps.mau));
-	ps.tu /= gcd;
-	ps.mau /= gcd;
-	return ps;
+	if(n<2) return false;
+	if(i*i>n) return true;
+	if(n%i==0) return false;
+	return isPrime(n,i+1);
 }
-void input_Fractions(pPhanSo*& a, int& n)
+void toBinary(int n)
 {
-	cout << "Nhap so luong phan so: ";
-	cin >> n;
-	a = new pPhanSo[n];
-	for (int i = 0; i < n; i++)
-	{
-		cout << "Nhap phan so thu " << i + 1 << ": ";
-		cin >> a[i].tu >> a[i].mau;
-		simplify(a[i]);
-	}
+	if(n==0) return;
+	toBinary(n/2);
+	cout << n%2;
 }
-void print_Fractions(pPhanSo* a, int n)
+int countDigit(int n, int d)
 {
-	cout << "Danh sach phan so: ";
-	for(int i=0; i<n; i++)
-	{
-		cout << a[i].tu << "/" << a[i].mau << "\t";
-	}
-	cout << endl;
+	if(n==0) return 0;
+	if(n%10==d) return 1+ countDigit(n/10,d);
+	else return countDigit(n/10,d);
 }
+int maxElement(int *a, int n)
+{
+    // Điều kiện dừng: Nếu mảng chỉ còn một phần tử, trả về phần tử đó
+    if (n == 1)
+        return a[0];
 
-void insert_Fraction(pPhanSo*& a, int& n, pPhanSo ps)
-{
-	pPhanSo* newa = new pPhanSo[n + 1];
-	for (int i = 0; i < n; i++)
-	{
-		newa[i] = a[i];
-	}
-	newa[n] = ps;
-	n++;
-	delete[] a;
-	a = newa;
-}
-void delete_Fraction(pPhanSo*& a, int& n)
-{
-	if (n == 0) return;
-	pPhanSo* newa = new pPhanSo[n - 1];
-	for (int i = 0; i < n-1; i++)
-	{
-		newa[i] = a[i];
-	}
-	n--;
-	delete[]a;
-	a = newa;
+    // Tìm giá trị lớn nhất giữa phần tử đầu tiên và giá trị lớn nhất của phần còn lại
+    int maxOfRest = maxElement(a + 1, n - 1); // Đệ quy để tìm giá trị lớn nhất của phần còn lại
+    return (a[0] > maxOfRest) ? a[0] : maxOfRest; // Trả về giá trị lớn hơn
 }

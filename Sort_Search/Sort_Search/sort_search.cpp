@@ -308,3 +308,61 @@ void shop(int*a, int n)
 	for (int i = 0; i < d; i++)
     cout << nums[i] << ": " << count[i] << endl;
 }
+bool Search_In_Rotated_Sorted_Arrays(vector<int>&nums, int K)
+{
+	// 4 5 6 7 8 0 1 2, K=1
+	int left=0;
+	int right=nums.size()-1;
+	while(left<=right)
+	{
+		int mid= left+(right-left)/2;
+		if(nums[mid]==K) return true;
+		else if(nums[mid]>=nums[left])
+		{
+			if(nums[mid]>K)
+			{
+				right=mid-1;
+			}
+			else left=mid+1;
+		}
+		else
+		{
+			if(nums[mid]<K)
+			{
+				left=mid+1;
+			}
+			else right=mid-1;
+		}
+	}
+}
+////////////////// four SUm
+vector<vector<int>> fourSum(vector<int>&nums, int target)
+{
+	vector<vector<int>> result;
+	sort(nums.begin(),nums.end());
+	for(int i=0; i<nums.size()-1; i++)
+	{	
+		if(i>0&&nums[i]==nums[i-1]) continue;
+		for(int j=i+1; j<nums.size(); j++)
+		{
+			if(j>i+1&&nums[j]==nums[j-1]) continue;
+			int left= j+1; 
+			int right= nums.size()-1;
+			while(left<right)
+			{
+				int sum=nums[i]+nums[j]+nums[left]+nums[right];
+				if(sum==target) 
+				{
+					result.push_back({nums[i],nums[j],nums[left],nums[right]});
+					while(left < right && nums[left] == nums[left + 1]) left++;
+                    while(left < right && nums[right] == nums[right - 1]) right--;
+                    left++;
+                    right--;
+				}
+				else if(sum>target) right--;
+				else left++;
+			}
+		}
+	}
+	return result;	
+}

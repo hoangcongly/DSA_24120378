@@ -288,9 +288,10 @@ Node*rotateLeft(Node*head, int k)
 }
 bool isPalindrome(Node*head)
 {
-    if(head!=NULL|| head->pNext!=NULL) return true;
+    if(head==NULL|| head->pNext==NULL) return true;
     Node*slow=head;
     Node*fast=head;
+    // 1 3 2 2 3 1 NULL
     while(fast!=NULL&& fast->pNext!=NULL) 
     {
         slow=slow->pNext;
@@ -299,14 +300,14 @@ bool isPalindrome(Node*head)
     Node*prev=NULL;
     while(slow!=NULL)
     {
-        Node*next= slow->pNext;
+        Node*next=slow->pNext;
         slow->pNext=prev;
-        prev=slow;
+        prev= slow;
         slow=next;
     }
-    Node*secondHalf=prev;
-    Node*firstHalf= head;
-    while(secondHalf)
+    Node*secondHalf= prev;
+    Node*firstHalf=head;
+    while(secondHalf!=NULL)
     {
         if(firstHalf->data!=secondHalf->data) return false;
         firstHalf=firstHalf->pNext;
